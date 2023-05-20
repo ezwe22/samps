@@ -2,12 +2,12 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+import string
 
-# Load the Traffic Sign Classification model
-model = tf.keras.models.load_model('my_model.h5')
+# Load the Alphabet Classification model
+model = tf.keras.models.load_model('alphabet_model.h5')
 
-class_names = ['Stop', 'Yield', 'Speed Limit 30', 'Speed Limit 50', 'Speed Limit 60',
-               'Speed Limit 70', 'Speed Limit 80', 'No Overtaking', 'No Entry', 'Road Work']
+class_names = list(string.ascii_uppercase)
 
 def preprocess_image(image):
     image = image.resize((32, 32))  # Resize image to match input size
@@ -24,7 +24,7 @@ def import_and_predict(image_data, model):
     class_label = class_names[class_index]
     return class_label
 
-st.write("# Traffic Sign Classification")
+st.write("# Alphabet Classifier/Recognizer")
 file = st.file_uploader("Select an image", type=["jpg", "png"])
 
 if file is None:
