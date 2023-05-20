@@ -16,6 +16,7 @@ def preprocess_image(image):
     image = np.expand_dims(image, axis=0)  # Add batch dimension
     return image
 
+@tf.function
 def import_and_predict(image_data, model):
     image = preprocess_image(image_data)
     prediction = model.predict(image)
