@@ -4,11 +4,11 @@ from PIL import Image
 import numpy as np
 
 # Load the Traffic Sign Classification model
-traffic_model = tf.keras.models.load_model('traffic_model.h5')
+traffic_model = tf.keras.models.load_model('my_model.h5')
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('traffic_model.h5')
+    model = tf.keras.models.load_model('my_model.h5')
     return model
 
 def preprocess_image(image):
