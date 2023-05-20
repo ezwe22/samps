@@ -11,6 +11,7 @@ class_names = list(string.ascii_uppercase)
 
 def preprocess_image(image):
     image = image.resize((32, 32))  # Resize image to match input size
+    image = image.convert("RGB")  # Convert image to RGB mode
     image = np.array(image)  # Convert PIL Image to NumPy array
     image = image / 255.0  # Normalize pixel values between 0 and 1
     image = np.expand_dims(image, axis=0)  # Add batch dimension
